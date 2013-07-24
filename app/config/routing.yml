@@ -1,0 +1,4 @@
+edge_graph:
+    resource: "@EdgeGraphBundle/Resources/config/routing.yml"
+    prefix:   /
+

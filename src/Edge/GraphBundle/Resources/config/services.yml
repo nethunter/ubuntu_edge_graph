@@ -1,0 +1,7 @@
+parameters:
+#    edge_graph.example.class: Edge\GraphBundle\Example
+
+services:
+#    edge_graph.example:
+#        class: %edge_graph.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
