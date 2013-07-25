@@ -34,7 +34,7 @@ class IndexPerkCommand extends ContainerAwareCommand
             $output->writeln('So far, funded ' . $clear_funds . '.');
 
             /** @var EntityManager $em */
-            $em = $this->getContainer()->get('doctrine')->getEntityManager();
+            $em = $this->getContainer()->get('doctrine')->getManager();
 
             $graphTick = new GraphTick();
             $graphTick->setGraphFunding($clear_funds);

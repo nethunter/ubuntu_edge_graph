@@ -5,7 +5,7 @@
     <ignored path="ubuntu-edge-graph.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.xml" changelist="39742e64-1012-493a-a75d-545efd92c9e8" time="1374707104522" ignored="false" />
-    <file path="/IndexPerkCommand.php" changelist="39742e64-1012-493a-a75d-545efd92c9e8" time="1374704775570" ignored="false" />
+    <file path="/IndexPerkCommand.php" changelist="39742e64-1012-493a-a75d-545efd92c9e8" time="1374735821980" ignored="false" />
     <file path="/Graph.php" changelist="39742e64-1012-493a-a75d-545efd92c9e8" time="1374704900605" ignored="false" />
     <file path="/a.dummy" changelist="39742e64-1012-493a-a75d-545efd92c9e8" time="1374705606770" ignored="false" />
     <file path="/parameters.yml" changelist="39742e64-1012-493a-a75d-545efd92c9e8" time="1374704858833" ignored="false" />
@@ -41,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexPerkCommand.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="IndexPerkCommand.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Edge/GraphBundle/Command/IndexPerkCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1436" selection-end="1436" vertical-scroll-proportion="-25.0">
+            <state line="36" column="68" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.62355655">
               <folding>
                 <element signature="e#43#74#0" expanded="true" />
               </folding>
@@ -90,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DefaultController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Edge/GraphBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="66" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.74480367">
+            <state line="11" column="53" selection-start="290" selection-end="290" vertical-scroll-proportion="-6.875">
               <folding>
                 <element signature="e#47#104#0" expanded="true" />
               </folding>
@@ -133,7 +133,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/Edge/GraphBundle/Entity/Graph.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/src/Edge/GraphBundle/Command/IndexPerkCommand.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/Edge/GraphBundle/Entity/GraphTick.php" />
         <option value="$PROJECT_DIR$/src/Edge/GraphBundle/Entity/AndroidGCM.php" />
@@ -141,6 +140,7 @@
         <option value="$PROJECT_DIR$/src/Edge/GraphBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/Edge/GraphBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/Edge/GraphBundle/Command/IndexPerkCommand.php" />
       </list>
     </option>
   </component>
@@ -489,7 +489,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -657,15 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Edge/GraphBundle/Command/IndexPerkCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1436" selection-end="1436" vertical-scroll-proportion="-25.0">
-          <folding>
-            <element signature="e#43#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="23" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
@@ -721,9 +716,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Edge/GraphBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="66" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.74480367">
+        <state line="11" column="53" selection-start="290" selection-end="290" vertical-scroll-proportion="-6.875">
           <folding>
             <element signature="e#47#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Edge/GraphBundle/Command/IndexPerkCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="68" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.62355655">
+          <folding>
+            <element signature="e#43#74#0" expanded="true" />
           </folding>
         </state>
       </provider>
