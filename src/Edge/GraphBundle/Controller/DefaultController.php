@@ -46,11 +46,13 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $request = $this->getRequest();
 
-        $lastTick = $em->getRepository("EdgeGraphBundle:GraphTick")->findLastTick();
+        /** @var \Edge/GraphBundle/Entity/GraphTick $lastTickEntity */
+        $lastTickEntity = $em->getRepository("EdgeGraphBundle:GraphTick")->findLastTick();
 
-        if (!$request->query->get('raw')) {
-            $nf = new \NumberFormatter('en-US', \NumberFormatter::CURRENCY);
-            $lastTick = $nf->formatCurrency($lastTick, "USD");
+        if ($request->query->get('raw')) {
+            $lastTick = $lastTickEntity->getGraphFunding();
+        } else {
+            $lastTick = $lastTickEntity->getGraphFundingFormatted();
         }
 
         return new Response($lastTick);
@@ -58,6 +60,12 @@ class DefaultController extends Controller
 
     public function rssAction()
     {
+        $tickRepo = $this->getDoctrine()->getRepository('EdgeGraphBundle:GraphTick');
+        $ticks = $tickRepo->findBy(array(), array('graphDatetime' => 'DESC'), 5);
 
+        $feed = $this->get('eko_feed.feed.manager')->get('funding_feed');
+        $feed->addFromArray($ticks);
+
+        return new Response($feed->render('rss'));
     }
 }

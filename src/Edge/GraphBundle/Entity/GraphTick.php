@@ -4,6 +4,7 @@ namespace Edge\GraphBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Eko\FeedBundle\Item\Writer\ItemInterface;
 
 /**
  * Graph
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="graph_ticks")
  * @ORM\Entity(repositoryClass="Edge\GraphBundle\Entity\GraphTickRepository")
  */
-class GraphTick
+class GraphTick implements ItemInterface
 {
     /**
      * @var integer
@@ -116,4 +117,61 @@ class GraphTick
     {
         return $this->graphFunding;
     }
+
+    /**
+     * Currency formatted funding tick.
+     *
+     * @return string
+     */
+    public function getGraphFundingFormatted()
+    {
+        $nf = new \NumberFormatter('en-US', \NumberFormatter::CURRENCY);
+        return $nf->formatCurrency($this->getGraphFunding(), "USD");
+    }
+
+    /**
+     * This method returns feed item title
+     *
+     *
+     * @return string
+     */
+    public function getFeedItemTitle()
+    {
+        return $this->getGraphFundingFormatted();
+    }
+
+    /**
+     * This method returns feed item description (or content)
+     *
+     *
+     * @return string
+     */
+    public function getFeedItemDescription()
+    {
+        return null;
+    }
+
+    /**
+     * This method returns feed item URL link
+     *
+     *
+     * @return string
+     */
+    public function getFeedItemLink()
+    {
+        return 'http://www.indiegogo.com/projects/ubuntu-edge/';
+    }
+
+    /**
+     * This method returns item publication date
+     *
+     *
+     * @return \DateTime
+     */
+    public function getFeedItemPubDate()
+    {
+        return $this->getGraphDatetime();
+    }
+
+
 }

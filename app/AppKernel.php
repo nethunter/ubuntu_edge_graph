@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Edge\GraphBundle\EdgeGraphBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new Eko\FeedBundle\EkoFeedBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

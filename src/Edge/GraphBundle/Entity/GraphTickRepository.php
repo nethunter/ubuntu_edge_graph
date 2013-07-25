@@ -8,11 +8,7 @@ class GraphTickRepository extends EntityRepository
 {
     public function findLastTick()
     {
-        $qb = $this->getEntityManager()
-            ->createQuery('SELECT gt.graphFunding FROM EdgeGraphBundle:GraphTick gt ORDER BY gt.graphDatetime DESC')
-            ->setMaxResults(1);
-
-        return $qb->getSingleScalarResult();
+        return $this->findOneBy(array(), array('graphDatetime' => 'DESC'), 1);
     }
 
     public function findAllAsDataSeries()

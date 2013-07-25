@@ -64,6 +64,14 @@ stof_doctrine_extensions:
         default:
             timestampable: true # not needed: listeners are not enabled by default
 
+eko_feed:
+    feeds:
+        funding_feed:
+            title:       'Ubuntu Edge Funding History'
+            description: 'Funding Updates'
+            link:        ~
+            encoding:    'utf-8'
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
