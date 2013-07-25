@@ -1,3 +1,7 @@
 edge_graph_homepage:
     pattern:  /graph
     defaults: { _controller: EdgeGraphBundle:Default:index }
+
+edge_graph_homepage_last:
+    pattern:  /graph/last
+    defaults: { _controller: EdgeGraphBundle:Default:last }

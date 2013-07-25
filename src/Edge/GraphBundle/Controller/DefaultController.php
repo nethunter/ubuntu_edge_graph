@@ -4,6 +4,7 @@ namespace Edge\GraphBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Ob\HighchartsBundle\Highcharts\Highchart;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -38,19 +39,19 @@ class DefaultController extends Controller
             'year' => '%b'
         ));
 
-        /* $ob->xAxis->xAxis(array(
-            'type' => 'datetime',
-            'dateTimeLabelFormats' => array(
-                'month' => '%e. %b',
-                'year' => '%b'
-            )
-        )); */
-
         $ob->yAxis->title(array('text'  => "Funding amount in \$US"));
         $ob->series($series);
 
         return $this->render('EdgeGraphBundle:Default:index.html.twig', array(
             'chart' => $ob
         ));
+    }
+
+    public function lastAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $lastTick = $em->getRepository("EdgeGraphBundle:GraphTick")->findLastTick();
+
+        return new Response($lastTick);
     }
 }

@@ -22,7 +22,8 @@
         "symfony/console": "~2.3",
         "fabpot/goutte": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
-        "ob/highcharts-bundle": "dev-master"
+        "ob/highcharts-bundle": "dev-master",
+        "eko/feedbundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Graph
  *
  * @ORM\Table(name="graph_ticks")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Edge\GraphBundle\Entity\GraphTickRepository")
  */
 class GraphTick
 {
