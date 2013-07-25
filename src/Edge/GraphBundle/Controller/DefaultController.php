@@ -5,19 +5,13 @@ namespace Edge\GraphBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Ob\HighchartsBundle\Highcharts\Highchart;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Intl\NumberFormatter\NumberFormatter;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $fundingValue = $this->getDoctrine()->getRepository("EdgeGraphBundle:GraphTick")->findAll();
-
-        $data = array();
-
-        /** @var \Edge\GraphBundle\Entity\GraphTick $value */
-        foreach($fundingValue as $value) {
-            $data[] = array($value->getGraphDatetime()->getTimestamp() * 1000, (int)$value->getGraphFunding());
-        }
+        $data= $this->getDoctrine()->getRepository("EdgeGraphBundle:GraphTick")->findAllAsDataSeries();
 
         // Chart
         $series = array(
@@ -50,8 +44,20 @@ class DefaultController extends Controller
     public function lastAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $request = $this->getRequest();
+
         $lastTick = $em->getRepository("EdgeGraphBundle:GraphTick")->findLastTick();
 
+        if (!$request->query->get('raw')) {
+            $nf = new \NumberFormatter('en-US', \NumberFormatter::CURRENCY);
+            $lastTick = $nf->formatCurrency($lastTick, "USD");
+        }
+
         return new Response($lastTick);
+    }
+
+    public function rssAction()
+    {
+
     }
 }
