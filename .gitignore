@@ -13,5 +13,5 @@ app/config/parameters.ini
 app/config/parameters.yml
 
 # PhpStorm Files
-*/.idea/workspace.xml
+workspace.xml
 */.idea/tasks.xml

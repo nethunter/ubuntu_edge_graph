@@ -25,6 +25,11 @@ class DefaultController extends Controller
 
         $ob = new Highchart();
         $ob->chart->renderTo('linechart');  // The #id of the div where to render the chart
+        $ob->chart->zoomType('x');
+        $ob->chart->spacingRight(20);
+
+        $ob->tooltip->shared(true);
+        
         $ob->title->text('Ubuntu Edge Funding Over Time');
 
         $ob->xAxis->type('datetime');
