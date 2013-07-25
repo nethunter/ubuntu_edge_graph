@@ -14,11 +14,13 @@ class GraphTickRepository extends EntityRepository
     public function findAllAsDataSeries()
     {
         $ticks = $this->findAll();
-
         $data = array();
+
         /** @var \Edge\GraphBundle\Entity\GraphTick $tick */
         foreach($ticks as $tick) {
             $data[] = array($tick->getGraphDatetime()->getTimestamp() * 1000, (int)$tick->getGraphFunding());
         }
+
+        return $data;
     }
 }
