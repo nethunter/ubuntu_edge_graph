@@ -90,4 +90,19 @@ class DefaultController extends Controller
 
         return new Response($feed->render('rss'));
     }
+
+    public function predictAction()
+    {
+        $perk_end = new \DateTime('22.08.2013');
+        $period = $this->getRequest()->get('period', 5);
+
+        $em = $this->getDoctrine()->getManager();
+        $prediction = $em->getRepository('EdgeGraphBundle:GraphTick')->predictAmountByDaysLeft(
+            $perk_end, $period
+        );
+
+        return new Response('According to the average of the last ' . $period . ' days,'
+            .' by the date ' . $perk_end->format('d M Y') . ', the perk it will raise ' .
+        $prediction->getGraphFundingFormatted());
+    }
 }

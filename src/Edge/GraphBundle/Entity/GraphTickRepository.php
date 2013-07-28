@@ -23,4 +23,38 @@ class GraphTickRepository extends EntityRepository
 
         return $data;
     }
+
+    public function predictAmountByDaysLeft(\DateTime $dateTime, $period = 5)
+    {
+        /** @var EntityManager $em */
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT MAX(gt.graphFunding) max_fund, '
+            .'MAX (gt.graphFunding) - MIN(gt.graphFunding)growth, DATE(gt.graphDatetime) dateonly '
+            .'FROM Edge\GraphBundle\Entity\GraphTick gt GROUP BY dateonly '
+            .' ORDER BY dateonly DESC');
+        $query->setMaxResults($period);
+
+        $results = $query->getResult();
+
+        // Calculate the average growth per day
+        $first = reset($results);
+        $currentFund =  $first['max_fund'];
+        $avg = $first['growth'];
+        $pos = 0;
+
+        while($result = next($results)) {
+            $avg += $result['growth'] / ++$pos;
+        }
+
+        $now = new \DateTime();
+        $daysLeft = (int) $now->diff( $dateTime )->format( '%a' );
+
+        $funding = ($avg * $daysLeft) + $currentFund;
+
+        $graphTick = new GraphTick();
+        $graphTick->setGraphFunding($funding);
+        $graphTick->setGraphDatetime($dateTime);
+
+        return $graphTick;
+    }
 }

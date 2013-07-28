@@ -26,35 +26,15 @@ class EstimatePerkCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $perk_end = new \DateTime();
-        $perk_end->add(new \DateInterval('P25D'));
+        $perk_end = new \DateTime('22.08.2013');
 
         /** @var EntityManager $em */
         $em = $this->getContainer()->get('doctrine')->getManager();
-        $query = $em->createQuery('SELECT MAX(gt.graphFunding) max_fund, '
-            .'MAX (gt.graphFunding) - MIN(gt.graphFunding)growth, DATE(gt.graphDatetime) dateonly '
-            .'FROM Edge\GraphBundle\Entity\GraphTick gt GROUP BY dateonly '
-            .' ORDER BY dateonly DESC');
-        $query->setMaxResults(self::PERIOD);
-
-        $results = $query->getResult();
-
-        // Calculate the average growth per day
-        $first = reset($results);
-        $currentFund =  $first['max_fund'];
-        $avg = $first['growth'];
-        $pos = 0;
-
-        while($result = next($results)) {
-            $avg += $result['growth'] / ++$pos;
-        }
-
-        $result = ($avg * 25) + $currentFund;
-
-        $nf = new \NumberFormatter('en-US', \NumberFormatter::CURRENCY);
-        $resultFormatted = $nf->formatCurrency($result, "USD");
+        $result = $em->getRepository('EdgeGraphBundle:GraphTick')->predictAmountByDaysLeft(
+            $perk_end, self::PERIOD
+        );
 
         $output->writeln('According to the average of the last ' . self::PERIOD . ' days,'
-            .'by the end of the perk it will raise ' . $resultFormatted);
+            .'by the end of the perk it will raise ' . $result->getGraphFundingFormatted());
     }
 }

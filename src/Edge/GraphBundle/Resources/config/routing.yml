@@ -6,6 +6,10 @@ edge_graph_homepage_last:
     pattern:  /graph/last
     defaults: { _controller: EdgeGraphBundle:Default:last }
 
+edge_graph_homepage_predict:
+    pattern:  /graph/predict
+    defaults: { _controller: EdgeGraphBundle:Default:predict }
+
 edge_graph_homepage_rss:
     pattern:  /graph/rss.xml
     defaults: { _controller: EdgeGraphBundle:Default:rss }
