@@ -33,6 +33,28 @@ class DefaultController extends Controller
             'year' => '%b'
         ));
 
+        $ob->plotOptions->area(array(
+            'fillColor' => array(
+                'linearGradient' => array(
+                    'x1' => 0,
+                    'y1' => 0,
+                    'x2' => 0,
+                    'y2' => 1
+                ),
+            ),
+            'lineWidth' => 1,
+            'marker' => array(
+                'enabled' => false,
+            ),
+            'shadow' => false,
+            'states' => array(
+                'hover' => array(
+                    'lineWidth' => 1,
+                )
+            ),
+            'threshold' => null
+        ));
+
         $ob->yAxis->title(array('text'  => "Funding amount in \$US"));
         $ob->series($series);
 
