@@ -30,8 +30,8 @@ class GraphTickRepository extends EntityRepository
         $em = $this->getEntityManager();
         $query = $em->createQuery('SELECT MAX(gt.graphFunding) max_fund, '
             .'MAX (gt.graphFunding) - MIN(gt.graphFunding)growth, DATE(gt.graphDatetime) dateonly '
-            .'FROM Edge\GraphBundle\Entity\GraphTick gt GROUP BY dateonly '
-            .' ORDER BY dateonly DESC');
+            .'FROM Edge\GraphBundle\Entity\GraphTick gt WHERE gt.graphDatetime < CURRENT_DATE() '
+            . 'GROUP BY dateonly ORDER BY dateonly DESC');
         $query->setMaxResults($period);
 
         $results = $query->getResult();
