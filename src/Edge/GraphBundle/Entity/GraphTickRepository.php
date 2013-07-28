@@ -24,26 +24,35 @@ class GraphTickRepository extends EntityRepository
         return $data;
     }
 
+    /**
+     * Try to the predict the funding, by taking the average growth of
+     * each day of the period, and multiplying it by the amount of days left
+     * till the end of the perk.
+     *
+     * @param \DateTime $dateTime The date when the perk ends
+     * @param int $period How many days back to analyze
+     * @return GraphTick A GraphTick with the estimated funding, and the end date
+     */
     public function predictAmountByDaysLeft(\DateTime $dateTime, $period = 5)
     {
+        // Get the growth for each day in the dataset
         /** @var EntityManager $em */
         $em = $this->getEntityManager();
         $query = $em->createQuery('SELECT MAX(gt.graphFunding) max_fund, '
-            .'MAX (gt.graphFunding) - MIN(gt.graphFunding)growth, DATE(gt.graphDatetime) dateonly '
+            .'MAX (gt.graphFunding) - MIN(gt.graphFunding) growth, DATE(gt.graphDatetime) dateonly '
             .'FROM Edge\GraphBundle\Entity\GraphTick gt WHERE gt.graphDatetime < CURRENT_DATE() '
-            . 'GROUP BY dateonly ORDER BY dateonly DESC');
+            .'GROUP BY dateonly ORDER BY dateonly DESC');
         $query->setMaxResults($period);
-
         $results = $query->getResult();
 
         // Calculate the average growth per day
         $first = reset($results);
         $currentFund =  $first['max_fund'];
         $avg = $first['growth'];
-        $pos = 0;
+        $pos = 1;
 
         while($result = next($results)) {
-            $avg += $result['growth'] / ++$pos;
+            $avg += $result['growth'] / $pos++;
         }
 
         $now = new \DateTime();
