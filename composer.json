@@ -24,10 +24,12 @@
         "stof/doctrine-extensions-bundle": "dev-master",
         "ob/highcharts-bundle": "dev-master",
         "eko/feedbundle": "dev-master",
+        "knplabs/knp-menu-bundle": "~1.1",
         "mopa/bootstrap-bundle": "dev-master",
+        "twbs/bootstrap": "2.*",
+        "knplabs/knp-paginator-bundle": "dev-master",
         "jlong/sass-twitter-bootstrap": "dev-master",
-        "twitter/bootstrap": "2.*",
-        "knplabs/knp-menu-bundle": "dev-master",
+        "liip/theme-bundle": "dev-master",
         "mopa/bootstrap-sandbox-bundle": "dev-master"
     },
     "scripts": {
@@ -36,14 +38,16 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrapSass"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrapSass"
         ]
     },
     "config": {

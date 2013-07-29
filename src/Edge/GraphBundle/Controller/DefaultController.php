@@ -73,11 +73,14 @@ class DefaultController extends Controller
 
         if ($request->query->get('raw')) {
             $lastTick = $lastTickEntity->getGraphFunding();
+            return new Response($lastTick);
         } else {
             $lastTick = $lastTickEntity->getGraphFundingFormatted();
         }
 
-        return new Response($lastTick);
+        return $this->render('EdgeGraphBundle:Default:last.html.twig', array(
+            'last' => $lastTick
+        ));
     }
 
     public function rssAction()
@@ -101,8 +104,10 @@ class DefaultController extends Controller
             $perk_end, $period
         );
 
-        return new Response('According to the average of the last ' . $period . ' days,'
-            .' by the date ' . $perk_end->format('d M Y') . ', the perk it will raise ' .
-        $prediction->getGraphFundingFormatted());
+        return $this->render('EdgeGraphBundle:Default:predict.html.twig', array(
+            'period' => $period,
+            'date' => $perk_end->format('d M Y'),
+            'funding' => $prediction->getGraphFundingFormatted()
+        ));
     }
 }
