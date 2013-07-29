@@ -1,7 +1,36 @@
 parameters:
-#    edge_graph.example.class: Edge\GraphBundle\Example
+#    main_feeds_reader.example.class: MainFeeds\ReaderBundle\Example
 
 services:
-#    edge_graph.example:
-#        class: %edge_graph.example.class%
+#    main_feeds_reader.example:
+#        class: %main_feeds_reader.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+    edge_graph.navbar:
+        class: %mopa_bootstrap.navbar.generic%
+        arguments:
+            - { leftmenu: @edge_graph.menu= }
+            - {}
+            - { title: "Ubuntu Edge", titleRoute: "edge_graph_homepage", fixedTop: false, isFluid: false, inverse: true }
+        tags:
+            - { name: mopa_bootstrap.navbar, alias: frontendNavbar }
+
+    edge_graph.menu_builder:
+        class: Edge\GraphBundle\Navbar\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+
+    edge_graph.menu:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: edge_graph.menu_builder
+        factory_method: createMainMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: mainmenu } # The alias is what is used to retrieve the menu
+
+    edge_graph.menu_voter:
+        class: Edge\GraphBundle\Navbar\Voter\RequestVoter
+        arguments:
+            - @service_container
+        tags:
+            - { name: knp_menu.voter }
