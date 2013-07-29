@@ -11,14 +11,20 @@ class GraphTickRepository extends EntityRepository
         return $this->findOneBy(array(), array('graphDatetime' => 'DESC'), 1);
     }
 
-    public function findAllAsDataSeries()
+    public function findAllAsDataSeries($skipDuplicate = true)
     {
         $ticks = $this->findAll();
         $data = array();
+        $prevFunding = 0;
 
         /** @var \Edge\GraphBundle\Entity\GraphTick $tick */
         foreach($ticks as $tick) {
-            $data[] = array($tick->getGraphDatetime()->getTimestamp() * 1000, (int)$tick->getGraphFunding());
+            $funding = (int)$tick->getGraphFunding();
+
+            if ($funding != $prevFunding || false == $skipDuplicate) {
+                $data[] = array($tick->getGraphDatetime()->getTimestamp() * 1000, $funding);
+                $prevFunding = $funding;
+            }
         }
 
         return $data;
