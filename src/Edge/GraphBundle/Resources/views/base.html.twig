@@ -1,11 +1,26 @@
-{% extends 'MopaBootstrapBundle::base.html.twig' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ubuntu Edge Funding Chart</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a class="brand" href="#">Title</a>
+            {{ knp_menu_render('EdgeGraphBundle:Navbar:MenuBuilder', {'nav_type': 'navbar'}) }}
+        </div>
+    </div>
+    <div class="{% block container_class%}container{% endblock %}">
+        <h1>{% block heading %}Ubuntu Edge Funding Chart{% endblock %}</h1>
 
-{% block title %}Ubuntu Edge Funding Chart{% endblock %}
-
-{% block headline %}Ubuntu Edge Funding Chart{% endblock %}
-
-{% block container_class %}container{% endblock %}
-
-{% block footer %}
-    <p>© 2013 <a href="http://www.studiosh.com">StudioSH</a></p>
-{% endblock %}
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    {% block foot_script %}{% endblock %}
+</body>
+</html>
