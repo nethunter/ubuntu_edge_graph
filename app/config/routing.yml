@@ -2,3 +2,6 @@ edge_graph:
     resource: "@EdgeGraphBundle/Resources/config/routing.yml"
     prefix:   /
 
+liip_theme:
+    resource: "@LiipThemeBundle/Resources/config/routing.xml"
+    prefix: /theme
