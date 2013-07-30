@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "42e1a5468e890d6a9ee4692c698a09fb",
+    "hash": "fe55a98acbd8c5509c9e920f3647147b",
     "packages": [
         {
             "name": "doctrine/common",
@@ -1097,6 +1097,47 @@
             "time": "2013-07-19 00:03:27"
         },
         {
+            "name": "leafo/lessphp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leafo/lessphp.git",
+                "reference": "366fb52798d4f120503af0703da11cba4ad06f8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leafo/lessphp/zipball/366fb52798d4f120503af0703da11cba4ad06f8d",
+                "reference": "366fb52798d4f120503af0703da11cba4ad06f8d",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "lessc.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Leaf Corcoran",
+                    "email": "leafot@gmail.com",
+                    "homepage": "http://leafo.net"
+                }
+            ],
+            "description": "lessphp is a compiler for LESS written in PHP.",
+            "homepage": "http://leafo.net/lessphp/",
+            "time": "2013-07-09 16:25:09"
+        },
+        {
             "name": "liip/theme-bundle",
             "version": "dev-master",
             "target-dir": "Liip/ThemeBundle",
@@ -1219,12 +1260,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phiamo/MopaBootstrapBundle.git",
-                "reference": "d6af7c60a976f7de921f0d9efd2480c93426d72a"
+                "reference": "68450b0f529767ca4da92aa9f1660e8c15f6c0c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phiamo/MopaBootstrapBundle/zipball/d6af7c60a976f7de921f0d9efd2480c93426d72a",
-                "reference": "d6af7c60a976f7de921f0d9efd2480c93426d72a",
+                "url": "https://api.github.com/repos/phiamo/MopaBootstrapBundle/zipball/68450b0f529767ca4da92aa9f1660e8c15f6c0c7",
+                "reference": "68450b0f529767ca4da92aa9f1660e8c15f6c0c7",
                 "shasum": ""
             },
             "require": {
@@ -1273,7 +1314,7 @@
                 "form",
                 "template"
             ],
-            "time": "2013-07-29 10:40:29"
+            "time": "2013-07-30 10:41:51"
         },
         {
             "name": "mopa/composer-bridge",
@@ -2617,7 +2658,8 @@
         "jlong/sass-twitter-bootstrap": 20,
         "mopa/bootstrap-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "liip/theme-bundle": 20
+        "liip/theme-bundle": 20,
+        "leafo/lessphp": 20
     },
     "platform": {
         "php": ">=5.3.3"

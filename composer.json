@@ -29,7 +29,8 @@
         "mopa/bootstrap-bundle": "dev-master",
         "twbs/bootstrap": "2.*",
         "knplabs/knp-paginator-bundle": "dev-master",
-        "liip/theme-bundle": "dev-master"
+        "liip/theme-bundle": "dev-master",
+        "leafo/lessphp": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
