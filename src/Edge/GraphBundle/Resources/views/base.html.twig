@@ -6,15 +6,6 @@
 
 {% block container_class %}container{% endblock %}
 
-{% block head_style %}
-    {# Override this block to add your own files! #}
-    {% stylesheets filter="compass"
-    '@MopaBootstrapBundle/Resources/public/sass/mopabootstrapbundle.scss'
-    %}
-    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
-    {% endstylesheets %}
-{% endblock %}
-
 {% block footer %}
     <p>© 2013 <a href="http://www.studiosh.com">StudioSH</a></p>
 {% endblock %}

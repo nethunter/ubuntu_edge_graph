@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cfcd84df50d539bc41b8e232e25534f4",
+    "hash": "a76e54342080914a750a5cffc89e68e3",
     "packages": [
         {
             "name": "doctrine/common",
@@ -2614,9 +2614,9 @@
         "stof/doctrine-extensions-bundle": 20,
         "ob/highcharts-bundle": 20,
         "eko/feedbundle": 20,
+        "jlong/sass-twitter-bootstrap": 20,
         "mopa/bootstrap-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "jlong/sass-twitter-bootstrap": 20,
         "liip/theme-bundle": 20
     },
     "platform": {

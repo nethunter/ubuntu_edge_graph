@@ -18,7 +18,7 @@ class MenuBuilder extends AbstractNavbarMenuBuilder
         $dropdown->addChild('Days', array('route' => 'edge_graph_homepage'));
         $menu->addChild('Last', array('route' => 'edge_graph_homepage_last'));
         $menu->addChild('Predict', array('route' => 'edge_graph_homepage_predict'));
-        // ... add more children
+        $menu->addChild('RSS', array('route' => 'edge_graph_homepage_rss'));
         return $menu;
     }
 
