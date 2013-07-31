@@ -21,6 +21,7 @@ class DefaultController extends Controller
         $ob = new Highchart();
         $ob->chart->renderTo('linechart');  // The #id of the div where to render the chart
         $ob->chart->zoomType('x');
+        $ob->chart->type('spline');
         $ob->chart->spacingRight(20);
 
         $ob->tooltip->shared(true);
@@ -33,26 +34,16 @@ class DefaultController extends Controller
             'year' => '%b'
         ));
 
-        $ob->plotOptions->area(array(
-            'fillColor' => array(
-                'linearGradient' => array(
-                    'x1' => 0,
-                    'y1' => 0,
-                    'x2' => 0,
-                    'y2' => 1
+        $ob->plotOptions->spline(array(
+                'lineWidth' => 4,
+                'stats' => array(
+                    'hover' => array(
+                        'lineWidth' => 5
+                    )
                 ),
-            ),
-            'lineWidth' => 1,
-            'marker' => array(
-                'enabled' => false,
-            ),
-            'shadow' => false,
-            'states' => array(
-                'hover' => array(
-                    'lineWidth' => 1,
+                'marker' => array(
+                    'enabled' => false
                 )
-            ),
-            'threshold' => null
         ));
 
         $ob->yAxis->title(array('text'  => "Funding amount in \$US"));
