@@ -11,11 +11,19 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $data= $this->getDoctrine()->getRepository("EdgeGraphBundle:GraphTick")->findAllAsDataSeries();
+        $graphTicksRepository = $this->getDoctrine()->getRepository("EdgeGraphBundle:GraphTick");
+        $data= $graphTicksRepository->findAllAsDataSeries();
+
+        // Prepare prediction
+        $perk_end = new \DateTime('22.08.2013');
+        $period = $this->getRequest()->get('period', 5);
+
+        $prediction = $graphTicksRepository->predictAmountOverTimeAsDataSeries($perk_end, $period);
 
         // Chart
         $series = array(
-            array("name" => "Funding", "data" => $data)
+            array('name' => 'Funding', 'data' => $data),
+            array('name' => 'Prediction', 'data' => $prediction)
         );
 
         $ob = new Highchart();
