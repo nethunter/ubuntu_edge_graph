@@ -74,12 +74,11 @@ class GraphTickRepository extends EntityRepository
         // Calculate the values 'till perks end
         for($day=0; $day<=$daysLeft; $day++) {
             $funding += $avg;
+            $date->add($interval);
 
             $ticks[] = array(
                 $date->getTimestamp() * 1000, $funding
             );
-
-            $date->add($interval);
         }
 
         return $ticks;
