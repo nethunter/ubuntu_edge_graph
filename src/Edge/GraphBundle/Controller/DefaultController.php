@@ -12,13 +12,14 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $graphTicksRepository = $this->getDoctrine()->getRepository("EdgeGraphBundle:GraphTick");
-        $data= $graphTicksRepository->findAllAsDataSeries();
+        $data = $graphTicksRepository->findAllAsDataSeries();
 
         // Prepare prediction
         $perk_end = new \DateTime('22.08.2013');
         $period = $this->getRequest()->get('period', 5);
 
         $prediction = $graphTicksRepository->predictAmountOverTimeAsDataSeries($perk_end, $period);
+        array_unshift($prediction, end($data));
 
         // Chart
         $series = array(
