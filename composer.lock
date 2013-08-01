@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fe55a98acbd8c5509c9e920f3647147b",
+    "hash": "d3891d88b536e092e7337e8589e645e4",
     "packages": [
         {
             "name": "doctrine/common",
@@ -1190,6 +1190,50 @@
                 "theming"
             ],
             "time": "2013-07-16 13:08:11"
+        },
+        {
+            "name": "mixpanel/mixpanel-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mixpanel/mixpanel-php.git",
+                "reference": "d6125d284dd92d332afb79e060372fdfe3ce1f0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mixpanel/mixpanel-php/zipball/d6125d284dd92d332afb79e060372fdfe3ce1f0c",
+                "reference": "d6125d284dd92d332afb79e060372fdfe3ce1f0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/Mixpanel.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mixpanel <dev@mixpanel.com>",
+                    "homepage": "https://mixpanel.com/"
+                }
+            ],
+            "description": "The Official PHP library for Mixpanel",
+            "homepage": "https://mixpanel.com/help/reference/php",
+            "keywords": [
+                "mixpanel",
+                "mixpanel php"
+            ],
+            "time": "2013-06-21 06:30:55"
         },
         {
             "name": "monolog/monolog",
@@ -2659,7 +2703,8 @@
         "mopa/bootstrap-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
         "liip/theme-bundle": 20,
-        "leafo/lessphp": 20
+        "leafo/lessphp": 20,
+        "mixpanel/mixpanel-php": 20
     },
     "platform": {
         "php": ">=5.3.3"

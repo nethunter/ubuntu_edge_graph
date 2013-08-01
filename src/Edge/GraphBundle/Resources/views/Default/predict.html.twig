@@ -1,5 +1,7 @@
 {% extends 'EdgeGraphBundle::base.html.twig' %}
 
+{% block page_name %}Predict{% endblock %}
+
 {% block content %}
 According to the average of the last {{ period }} days, by the date {{ date }}, the perk it will raise {{ funding }}.
 {% endblock %}

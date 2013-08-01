@@ -30,7 +30,8 @@
         "twbs/bootstrap": "2.*",
         "knplabs/knp-paginator-bundle": "dev-master",
         "liip/theme-bundle": "dev-master",
-        "leafo/lessphp": "dev-master"
+        "leafo/lessphp": "dev-master",
+        "mixpanel/mixpanel-php": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
